@@ -1,21 +1,32 @@
-import { StatusBar } from 'expo-status-bar';
+
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import Header from './components/header';
+import {View,Text} from 'react-native';
+import  {Button} from 'react-native-elements';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+export default class App extends React.Component {
+constructor(props){
+  super(props);
+  this.state={mytext:"toufik baghrosse"}
 }
+  onPressFunction=()=> {
+this.setState({mytext: "rachidbaghrosse"})  }
+   render(){
+  return (
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+    <View>
+    <Header content='liste des tâches'/>
+    <Button
+     large 
+    iconleft
+    icon={{name:'code'}}
+    title = "rachid baghrosse"
+    onPress={this.onPressFunction}
+    ></Button>
+    <Text> {this.state.mytext}</Text>
+    </View>
+
+  );
+
+  }
+}
